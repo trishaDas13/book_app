@@ -5,6 +5,42 @@
     box-sizing: border-box;
     font-family: 'DM Sans', sans-serif;
 }
+* {
+scrollbar-width: thin;
+scrollbar-color: #745fdd #ffffff;
+}
+*::-webkit-scrollbar {
+width: 14px;
+}
+
+*::-webkit-scrollbar-track {
+background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+background-color: #745fdd;
+border-radius: 10px;
+border: 3px solid #ffffff;
+}
+.dark{
+    background-color: #111;
+    transition: 0.5s;
+}
+
+.dark {
+scrollbar-color: #506ff8 #111;
+}
+
+.dark::-webkit-scrollbar-track {
+background: #111;
+}
+
+.dark::-webkit-scrollbar-thumb {
+background-color: #745fdd;
+border: 3px solid #111;
+}
+
+
 nav .logo{
     display: flex;
     gap: 10px;
@@ -15,6 +51,7 @@ nav .logo{
     justify-content: space-around;
     align-items: center;
 }
+
 /* Toggle button */
 .switch {
     position: relative;
@@ -34,7 +71,7 @@ nav .logo{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #9e9e9e;
     -webkit-transition: .4s;
     transition: .4s;
 }
@@ -50,11 +87,14 @@ nav .logo{
     -webkit-transition: .4s;
     transition: .4s;
 }
+.dark .slider:before{
+    background-color: black;
+}
 input:checked + .slider {
-    background-color: #2196F3;  
+    background-color: #9ad1ff;  
 }
 input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #9ad1ff;
 }
 input:checked + .slider:before {
     -webkit-transform: translateX(26px);
@@ -123,6 +163,12 @@ nav{
     background-color: white;
     z-index: 10;
 }
+.dark nav{
+    background-color: #191b1d;
+}
+.dark nav h2{
+    color: white;
+}
 .booksContainer{
     display: flex;
 }
@@ -133,6 +179,18 @@ aside{
     overflow-y: scroll;
     /* border: 2px solid red; */
 }
+.dark aside {
+scrollbar-color: #506ff8 #111;
+}
+
+.dark aside::-webkit-scrollbar-track {
+background: #111;
+}
+
+.dark aside::-webkit-scrollbar-thumb {
+background-color: #745fdd;
+border: 3px solid #111;
+}
 main{
     width: 73%;
     display: flex;
@@ -141,6 +199,7 @@ main{
     justify-content: center;
     padding: 2rem;
 }
+
 .bookCotainer{
     display: flex;
     flex-wrap: wrap;
@@ -157,11 +216,19 @@ main{
 
     /* text-transform: capitalize; */
 }
+.dark .categories{
+    color: rgb(109, 108, 108);
+}
 .categories:hover{
     color:rgb(79, 46, 232);
     cursor: pointer;
 }
+.dark .categories:hover{
+    color:rgb(223, 108, 55);
+    cursor: pointer;
+}
 .book{
+    position: relative;
     width: 225px;
     height: 350px;
     display: flex;
@@ -169,13 +236,36 @@ main{
     align-items: flex-start;
     box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.3);
     border-radius: 15px;
+    transition: transform 0.5s;
+}
+.view{
+    width: 100%;
+    height: 60px;
+    background-color: rgb(233, 184, 36);
+    position: absolute;
+    bottom: 90px;
+    overflow: hidden;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.7s ease-in-out;
+    opacity: 0;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
     cursor: pointer;
+}
+.book:hover .view{
+    opacity: 1;
 }
 .bookImage{
    width: 100%;
    height:260px;
    border-top-right-radius: 15px;
-   border-top-left-radius: 15px;
+   border-top-left-radius: 15px;   
+}
+.book:hover{
+    transform: scale(1.1);
 }
 .bookTitle{
     text-transform: uppercase;
@@ -189,6 +279,9 @@ main{
     text-overflow: ellipsis;
     max-width: 150px;
 }
+.dark .bookTitle{
+    color: white;
+}
 .bookAuthor{
     color: #9b9a9a;
     font-size: 14px;
@@ -198,6 +291,9 @@ main{
 #catagory-name{
     font-size:48px;
     margin-bottom: 2rem;
+}
+.dark #catagory-name{
+    color: white;
 }
 #catagory-name:after{
 	content:attr(data-text);
@@ -277,6 +373,15 @@ main{
     display: flex;
     justify-content: space-around;
 }
+.links a{
+    color: black;
+}
+.links a:active{
+    color: rgb(255, 124, 124);
+}
+.links a:focus{
+    color: rgb(255, 124, 124);
+}
 .img img{
     width: 250px;
     height: 250px;
@@ -293,4 +398,30 @@ main{
     top: 10px;
     right: 10px;
     cursor: pointer;
+}
+.sample-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
+.sample{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.sampleTitle{
+    /* text-align: center; */
+    width: 100%;
+    margin-bottom: -20px;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    color: #b4afaf;
+    font-size: 14px;
+    display: block;
 }
